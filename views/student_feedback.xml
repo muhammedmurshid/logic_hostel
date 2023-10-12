@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="logic_student_feedback_form_view" model="ir.ui.view">
+        <field name="name">Student Feedback</field>
+        <field name="model">hostel.student.feedback</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Form">
+                <header>
+                    <!--                    <field name="state" widget="statusbar"/>-->
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="hostel_id"/>
+                            <field name="feedback"/>
+                            <field name="star_rating" widget="priority"/>
+                        </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="logic_student_feedback_hostel_tree_view" model="ir.ui.view">
+        <field name="name">Students Feedback</field>
+        <field name="model">hostel.student.feedback</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id"/>
+                <field name="hostel_id"/>
+                <field name="feedback"/>
+                <field name="star_rating" widget="priority"/>
+            </tree>
+
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="logic_students_feedback_action">
+        <field name="name">Feedback</field>
+        <field name="res_model">hostel.student.feedback</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Feedback" id="menu_logic_hostel_student_feedback" action="logic_students_feedback_action"
+              parent="menu_logic_hostels" sequence="2"/>
+
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_logic_hostel,access_details,model_hostel_form,base.group_user,1,1,1,1
+hostel_student_feedback,access_details,model_hostel_student_feedback,base.group_user,1,1,1,1
+hostel_student_rating,access_details,model_students_rating,base.group_user,1,1,1,1
