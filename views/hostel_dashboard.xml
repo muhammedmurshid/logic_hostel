@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="assets_backend" name="add_javascript assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/logic_hostel/static/src/js/dashboard_action.js"></script>
+        </xpath>
+    </template>
+    <data>
+
+<!--        <record id="custom_dashboard_action" model="ir.actions.client">-->
+<!--            <field name="name">Custom Dashboard</field>-->
+<!--            <field name="tag">dashboard_action</field>-->
+<!--            <field name="target">current</field>-->
+<!--        </record>-->
+<!--        <menuitem name="Dashboard" id="custom_dashboard"-->
+<!--                  parent="menu_logic_hostels"-->
+<!--                  action="custom_dashboard_action"/>-->
+    </data>
+</odoo>

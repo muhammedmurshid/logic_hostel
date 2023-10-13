@@ -117,4 +117,13 @@ class HostelForm(models.Model):
     def done(self):
         print('ho')
 
+    @api.model
+    def get_hostel_datas(self):
+        all_project = self.env['hostel.form'].sudo().search([])
+        employees = self.env['hr.employee'].sudo().search([])
+        return {
+            'total_hostel': len(all_project),
+            'total_employees': len(employees),
+        }
+
 

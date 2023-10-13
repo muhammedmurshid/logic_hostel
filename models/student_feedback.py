@@ -25,7 +25,7 @@ class StudentsRating(models.Model):
     student_id = fields.Char(string='Name', required=True)
     star_rating = fields.Selection(
         [('0', 'None'), ('1', 'Poor'), ('2', 'Fair'), ('3', 'Good'), ('4', 'Very Good'), ('5', 'Excellent')],
-        readonly=False, string="Rating"
+        readonly=True, string="Rating"
     )
     rating_id = fields.Many2one('hostel.form', string='Hostel Rating', ondelete='cascade')
 

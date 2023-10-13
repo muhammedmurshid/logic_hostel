@@ -38,3 +38,10 @@ class WebsiteForm(http.Controller):
                 print('na')
             i.rating_ids = rating
         return request.render("logic_hostel.tmp_online_feedback_form_thanks")
+
+
+class HostelDashboard(http.Controller):
+    @http.route('/dashboard', auth='user', website=True)
+    def your_method(self):
+        return request.render('logic_hostel.custom_dashboard_tags')
+

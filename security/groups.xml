@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.module.category" id="module_logic_hostel_groups">
+        <field name="name">Hostel</field>
+        <field name="sequence">21</field>
+        <field name="visible" eval="0"/>
+    </record>
+    <record id="hostel_admin" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="module_logic_hostel_groups"/>
+    </record>
+    <record id="hostel_admission_officers" model="res.groups">
+        <field name="name">Officers</field>
+        <field name="category_id" ref="module_logic_hostel_groups"/>
+    </record>
+
+</odoo>
