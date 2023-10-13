@@ -40,7 +40,9 @@
                         <group>
                             <field name="contact_person"/>
                             <field name="contact_number"/>
+                            <field name="branch"/>
                             <field name="location"/>
+                            <field name="distance_from_institute"/>
                             <field name="hostel_type"/>
                             <field name="currency_id" invisible="1"/>
                             <!--                            <field name="students_per_room"/>-->
@@ -50,6 +52,7 @@
                         <group>
                             <field name="rent" widget="monetary"/>
                             <field name="caution_amount" widget="monetary"/>
+                            <field name="caution_deposit_refundable"/>
                             <field name="admission_fee" widget="monetary"/>
                             <field name="status"/>
                             <field name="hostel_condition"/>
@@ -65,8 +68,12 @@
                         <group string="Facilities">
                             <field name="wifi"/>
                             <field name="food_available"/>
+                            <field name="veg_food" attrs="{'invisible': [('food_available', '!=', True)]}"/>
+                            <field name="non_veg_food" attrs="{'invisible': [('food_available', '!=', True)]}"/>
+                            <field name="both_food" attrs="{'invisible': [('food_available', '!=', True)]}"/>
                             <field name="washing_machine"/>
                             <field name="attached_bathroom"/>
+                            <field name="study_room"/>
                             <field name="time_restriction"/>
                             <field name="time" attrs="{'invisible': [('time_restriction', '!=', True)]}"
                                    widget="float_time"/>
@@ -90,6 +97,11 @@
                             <group class="oe_subtotal_footer oe_right">
                                 <field name="avg_total"/>
                                 <field name="average_rating"/>
+                            </group>
+                        </page>
+                        <page string="Terms and Conditions" name="goals">
+                            <group>
+                                <field name="terms_and_conditions"/>
                             </group>
                         </page>
                     </notebook>
@@ -152,6 +164,7 @@
                 <field name="currency_id" invisible="1"/>
                 <field name="contact_number"/>
                 <field name="rent" widget="monetary"/>
+                <field name="caution_deposit_refundable"/>
                 <field name="no_of_rooms"/>
                 <field name="hostel_condition" widget="badge" decoration-success="hostel_condition == '5'"
                        decoration-warning="hostel_condition == '1'" decoration-muted="hostel_condition == '2'"

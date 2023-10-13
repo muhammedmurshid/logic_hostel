@@ -25,9 +25,13 @@ class HostelForm(models.Model):
             ('boys', 'Boys'), ('girls', 'Girls')
         ], string='Hostel Type', required=True
     )
+    distance_from_institute = fields.Float(string='Distance from institute')
+    branch = fields.Many2one('logic.base.branches', string='Branch')
     contact_person = fields.Char(string='Contact Person', required=True)
     caution_amount = fields.Float(string='Caution Deposit')
+    caution_deposit_refundable = fields.Boolean(string='Caution Deposit Refundable')
     admission_fee = fields.Float(string='Admission Fee')
+    terms_and_conditions = fields.Text(string='Terms and Conditions')
 
     #bed share
     single_share = fields.Boolean(string='Single Share')
@@ -39,11 +43,15 @@ class HostelForm(models.Model):
 
     # facilities
     food_available = fields.Boolean(string='Food')
+    veg_food = fields.Boolean(string='Veg Food')
+    non_veg_food = fields.Boolean(string='Non Veg Food')
+    both_food = fields.Boolean(string='Both Food')
     wifi = fields.Boolean(string='Wifi')
     washing_machine = fields.Boolean(string='Washing Machine')
     attached_bathroom = fields.Boolean(string='Attached Bathroom')
     time_restriction = fields.Boolean(string='Time Restriction')
     time = fields.Float(string='Time')
+    study_room = fields.Boolean(string='Study Room')
 
     @api.depends('rating_ids')
     def _average_total(self):
