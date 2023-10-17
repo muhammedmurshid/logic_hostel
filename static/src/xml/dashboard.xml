@@ -1,65 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <template>
-    <t t-name="CustomDashBoard" xml:space="preserve">
-
-        <div class="oh_dashboards" style="margin-top: 800px;">
+    <t t-name="CustomDashBoard">
+        <div class="oh_dashboards">
             <div class="container-fluid o_pj_dashboard">
             </div>
         </div>
     </t>
     <t t-name="DashboardProject">
-        <div class="row main-section" style="margin-left: 800px;">
-            <div class="col-md-4 col-sm-6 tot_projects oh-payslip">
-                <div class="oh-card" style="width: 410px;">
+        <div class="row main-section">
+            <link rel="stylesheet" href="/logic_hostel/static/src/css/hrms_dashboard.css"/>
+            <div class="col-md-2 col-sm-6 logic_hostel oh-payslip">
+                <div class="oh-card">
                     <div class="oh-card-body">
                         <div class="stat-widget-one">
-                            <div class="stat-icon" style="background:#e08048;">
+                            <div class="stat-icon">
                                 <i class="fa fa-puzzle-piece"/>
                             </div>
                             <div class="stat-content">
-                                <div class="stat-head">Total Hostels</div>
-                                <div class="stat_count">
-                                    <t t-esc="widget.total_hostel"/>
+                                <div class="stat-text">Hostel</div>
+                                <div class="stat-digit">
+                                    <t t-esc="widget.total_projects"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 tot_emp oh-payslip">
-                <div class="oh-card" style="width: 410px;">
+            <div class="col-md-2 col-sm-6 logic_base oh-base">
+                <div class="oh-card">
                     <div class="oh-card-body">
                         <div class="stat-widget-one">
-                            <div class="stat-icon" style="background:#645bd0">
-                                <i class="fa fa-user"/>
+                            <div class="stat-icon">
+                                <img src="/logic_performance_tracker/static/src/icons/performances.png" alt=""
+                                     height='50' width='50'/>
                             </div>
-                            <div class="stat-content">
-                                <div class="stat-head">Total Employees</div>
-                                <div class="stat_count">
-                                    <t t-esc="widget.total_employees"/>
+                            <div class="stat-content-cus">
+                                <div class="stat-text">Base</div>
+                                <div class="stat-digit">
+                                    <t t-esc="widget.total_students"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-<!--            <div class="col-md-4 col-sm-6 tot_tasks oh-payslip">-->
-<!--                <div class="oh-card" style="width: 410px;">-->
-<!--                    <div class="oh-card-body">-->
-<!--                        <div class="stat-widget-one">-->
-<!--                            <div class="stat-icon" style="background:#85d05b">-->
-<!--                                <i class="fa fa-tasks"/>-->
-<!--                            </div>-->
-<!--                            <div class="stat-content">-->
-<!--                                <div class="stat-head">Total tasks</div>-->
-<!--                                <div class="stat_count">-->
-<!--                                    <t t-esc="widget.total_tasks"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <!--            <div class="col-md-4 col-sm-6 tot_projects oh-payslip">-->
+            <!--                <div class="oh-card">-->
+            <!--                    <div class="oh-card-body">-->
+            <!--                        <div class="stat-widget-one">-->
+            <!--                            <div class="stat-icon" >-->
+            <!--                                <i class="fa fa-puzzle-piece"/>-->
+            <!--                                <span>HOSTEL</span>-->
+            <!--                            </div>-->
+            <!--                            <div class="stat-content">-->
+            <!--&lt;!&ndash;                                <div class="stat-head">Hostels</div>&ndash;&gt;-->
+            <!--                                <div class="stat_count">-->
+            <!--                                    <t t-esc="widget.total_projects"/>-->
+            <!--                                </div>-->
+            <!--                                <div>-->
+            <!--                                    <t t-esc="widget.hostel_name"/>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-4 col-sm-6 tot_emp oh-payslip">-->
+            <!--                <div class="oh-card" style="width: 410px;">-->
+            <!--                    <div class="oh-card-body">-->
+            <!--                        <div class="stat-widget-one">-->
+            <!--                            <div class="stat-icon" style="background:#645bd0">-->
+            <!--                                <i class="fa fa-user"/>-->
+            <!--                            </div>-->
+            <!--                            <div class="stat-content">-->
+            <!--                                <div class="stat-head">Total Employees</div>-->
+            <!--                                <div>-->
+            <!--                                    <div>-->
+            <!--                                        <t t-esc="widget.total_employees"/>-->
+            <!--                                    </div>-->
+
+
+            <!--                                </div>-->
+            <!--                                &lt;!&ndash;                               <div><t t-esc="widget.total_employees"/></div>&ndash;&gt;-->
+            <!--                                &lt;!&ndash;                               <div><t t-esc="widget.hostel_name"/></div>&ndash;&gt;-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-4 col-sm-6 tot_tasks oh-payslip">-->
+            <!--                <div class="oh-card" style="width: 410px;">-->
+            <!--                    <div class="oh-card-body">-->
+            <!--                        <div class="stat-widget-one">-->
+            <!--                            <div class="stat-icon" style="background:#85d05b">-->
+            <!--                                <i class="fa fa-tasks"/>-->
+            <!--                            </div>-->
+            <!--                            <div class="stat-content">-->
+            <!--                                <div class="stat-head">Total tasks</div>-->
+            <!--                                <div class="stat-content">-->
+            <!--                                    <t t-esc="widget.hostel_name"/>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
     </t>
 </template>

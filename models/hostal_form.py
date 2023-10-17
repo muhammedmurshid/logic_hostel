@@ -35,11 +35,17 @@ class HostelForm(models.Model):
 
     #bed share
     single_share = fields.Boolean(string='Single Share')
+    single_rent = fields.Float('Rent')
     double_share = fields.Boolean(string='2 Share')
+    double_rent = fields.Float('Rent')
     triple_share = fields.Boolean(string='3 Share')
+    triple_rent = fields.Float('Rent')
     four_share = fields.Boolean(string='4 Share')
+    four_rent = fields.Float('Rent')
     five_share = fields.Boolean(string='5 Share')
+    five_rent = fields.Float('Rent')
     six_share = fields.Boolean(string='6 Share')
+    six_rent = fields.Float('Rent')
 
     # facilities
     food_available = fields.Boolean(string='Food')
@@ -52,6 +58,8 @@ class HostelForm(models.Model):
     time_restriction = fields.Boolean(string='Time Restriction')
     time = fields.Float(string='Time')
     study_room = fields.Boolean(string='Study Room')
+
+    note = fields.Text(string='Note')
 
     @api.depends('rating_ids')
     def _average_total(self):
@@ -128,10 +136,15 @@ class HostelForm(models.Model):
     @api.model
     def get_hostel_datas(self):
         all_project = self.env['hostel.form'].sudo().search([])
-        employees = self.env['hr.employee'].sudo().search([])
+        employees = self.env['logic.students'].sudo().search([])
+        hostels = []
+        for i in all_project:
+            hostels.append(i.name)
+        print(hostels, 'hostels')
         return {
             'total_hostel': len(all_project),
-            'total_employees': len(employees),
+            'hostel_name': hostels,
+            'total_students': len(employees),
         }
 
 

@@ -35,6 +35,10 @@ overflow: auto !important;
     display: inline-block;
     width: 66%;
 }
+.stat-content-cus {
+    display: inline-block;
+    width: 66%;
+}
 .stat-icon{
     display: inline-block;
 }
@@ -43,14 +47,14 @@ overflow: auto !important;
     vertical-align: top;
     margin: auto;
     width: 100%;
-    color: #01c490;
+    color:green;
 }
 
 .stat-widget-one .stat-icon i {
   font-size: 30px;
   font-weight: 900;
   display: inline-block;
-  color: #01c490;}
+  color: green;}
 
 .stat-widget-one .stat-text {
     font-size: 14px;
@@ -64,7 +68,7 @@ overflow: auto !important;
   color: #02448b; }
 
 .stat-count {
-  font-size: 20px;
+  font-size: 40px;
   text-align: center;
   color: #00438b;}
 
@@ -212,7 +216,7 @@ rect:hover {  fill:#934da5; }
     margin-bottom: 1.5rem;
     border-radius: 0px;
     box-shadow: none;
-    background: none;
+    background: gray;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     will-change: transform, box-shadow;
 
@@ -338,14 +342,36 @@ rect:hover {  fill:#934da5; }
     margin-top: 1.5%;
 
 }
+.oh-base {
+
+    margin-top: 1.5%;
+
+}
 .oh-payslip .stat-icon {
 
-    width: 30%;
+    width: 40%;
     height: 85px;
     text-align: center;
     padding-top: 15%;
-    background: #ff8762;
-    color: #fff;
+    background: green;
+    color: red;
+
+}
+.oh-base .stat-icon {
+
+    width: 40%;
+    height: 85px;
+    text-align: center;
+    padding-top: 15%;
+    background: "/logic_performance_tracker/static/src/icons/performances.png";
+    color: red;
+
+}
+.oh-base .oh-card {
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform, box-shadow;
+    box-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
 
 }
 .oh-payslip .oh-card {
@@ -377,7 +403,7 @@ rect:hover {  fill:#934da5; }
     font-size: 25px;
     font-weight: 900;
     display: inline-block;
-    color: #fff;
+    color: gray;
 
 }
 .stat-widget-one {
@@ -390,6 +416,14 @@ rect:hover {  fill:#934da5; }
     width: 100%;
 }
 .oh-payslip .stat-icon {
+
+    width: 30%;
+    height: 85px;
+    text-align: center;
+    padding-top: 15%;
+
+}
+.oh-base .stat-icon {
 
     width: 30%;
     height: 85px;
