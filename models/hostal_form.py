@@ -12,7 +12,7 @@ class HostelForm(models.Model):
     contact_number = fields.Char(string='Contact number', required=True)
     location = fields.Char(string='Location')
     students_per_room = fields.Integer(string='Students per room')
-    rent = fields.Float(string='Rent', required=True)
+    # rent = fields.Float(string='Rent', required=True)
     no_of_rooms = fields.Integer(string='No of rooms')
     status = fields.Selection(selection=[
         ('active', 'Active'), ('inactive', 'Inactive')
