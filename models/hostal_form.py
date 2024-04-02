@@ -72,7 +72,7 @@ class HostelForm(models.Model):
                 if order.average_rating:
                     print('kk')
                     total += order.average_rating
-                    print(order.average_rating, 'len_avd')
+                   
                 # else:
                 #     print('kk')
                 #     total += 0
