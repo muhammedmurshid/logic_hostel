@@ -33,7 +33,7 @@ class HostelForm(models.Model):
     caution_deposit_refundable = fields.Boolean(string='Caution Deposit Refundable')
     admission_fee = fields.Float(string='Admission Fee')
     terms_and_conditions = fields.Text(string='Terms and Conditions')
-    priority = fields.Selection([('0', 'Low'), ('pin', 'Pinned')], string='Priority')
+    priority = fields.Selection([('0', 'Low'), ('1', 'Pinned')], string='Priority')
 
     #bed share
     single_share = fields.Boolean(string='Single Share')
@@ -72,7 +72,7 @@ class HostelForm(models.Model):
                 if order.average_rating:
                     print('kk')
                     total += order.average_rating
-                   
+
                 # else:
                 #     print('kk')
                 #     total += 0
