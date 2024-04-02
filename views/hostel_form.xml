@@ -50,7 +50,7 @@
 
                         </group>
                         <group>
-<!--                            <field name="rent" widget="monetary"/>-->
+                            <!--                            <field name="rent" widget="monetary"/>-->
                             <field name="caution_amount" widget="monetary"/>
                             <field name="caution_deposit_refundable"/>
                             <field name="admission_fee" widget="monetary"/>
@@ -59,17 +59,23 @@
                         </group>
                         <group string="Bed Share">
                             <field name="single_share"/>
-                            <field name="single_rent" widget="monetary" attrs="{'invisible':[('single_share', '=', False)], 'required':[('single_share', '=', True)] }"/>
+                            <field name="single_rent" widget="monetary"
+                                   attrs="{'invisible':[('single_share', '=', False)], 'required':[('single_share', '=', True)] }"/>
                             <field name="double_share"/>
-                            <field name="double_rent" widget="monetary" attrs="{'invisible':[('double_share', '=', False)], 'required':[('double_share', '=', True)]}"/>
+                            <field name="double_rent" widget="monetary"
+                                   attrs="{'invisible':[('double_share', '=', False)], 'required':[('double_share', '=', True)]}"/>
                             <field name="triple_share"/>
-                            <field name="triple_rent" widget="monetary" attrs="{'invisible':[('triple_share', '=', False)], 'required':[('triple_share', '=', True)]}"/>
+                            <field name="triple_rent" widget="monetary"
+                                   attrs="{'invisible':[('triple_share', '=', False)], 'required':[('triple_share', '=', True)]}"/>
                             <field name="four_share"/>
-                            <field name="four_rent" widget="monetary" attrs="{'invisible':[('four_share', '=', False)], 'required':[('four_share', '=', True)]}"/>
+                            <field name="four_rent" widget="monetary"
+                                   attrs="{'invisible':[('four_share', '=', False)], 'required':[('four_share', '=', True)]}"/>
                             <field name="five_share"/>
-                            <field name="five_rent" widget="monetary" attrs="{'invisible':[('five_share', '=', False)], 'required':[('five_share', '=', True)]}"/>
+                            <field name="five_rent" widget="monetary"
+                                   attrs="{'invisible':[('five_share', '=', False)], 'required':[('five_share', '=', True)]}"/>
                             <field name="six_share"/>
-                            <field name="six_rent" widget="monetary" attrs="{'invisible':[('six_share', '=', False)], 'required':[('six_share', '=', True)]}"/>
+                            <field name="six_rent" widget="monetary"
+                                   attrs="{'invisible':[('six_share', '=', False)], 'required':[('six_share', '=', True)]}"/>
                         </group>
                         <group string="Facilities">
                             <field name="wifi"/>
@@ -154,11 +160,11 @@
                             <div class="oe_kanban_bottom_left text-muted">
                                 <field name="hostel_condition"/>
                             </div>
-<!--                            <div class="o_kanban_record_title">-->
-<!--                                <field name="rent" widget="monetary"/>-->
-<!--                                <field name="currency_id" invisible="1"/>-->
+                            <!--                            <div class="o_kanban_record_title">-->
+                            <!--                                <field name="rent" widget="monetary"/>-->
+                            <!--                                <field name="currency_id" invisible="1"/>-->
 
-<!--                            </div>-->
+                            <!--                            </div>-->
                         </div>
                     </t>
                 </templates>
@@ -174,9 +180,9 @@
                 <field name="name"/>
                 <field name="currency_id" invisible="1"/>
                 <field name="contact_number"/>
-<!--                <field name="rent" widget="monetary"/>-->
-                <field name="caution_deposit_refundable"/>
-                <field name="no_of_rooms"/>
+                <!--                <field name="rent" widget="monetary"/>-->
+                <field name="branch"/>
+                <field name="hostel_type"/>
                 <field name="hostel_condition" widget="badge" decoration-success="hostel_condition == '5'"
                        decoration-warning="hostel_condition == '1'" decoration-muted="hostel_condition == '2'"
                        decoration-primary="hostel_condition == '3'" decoration-info="hostel_condition == '4'"/>
