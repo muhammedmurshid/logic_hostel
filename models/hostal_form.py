@@ -7,6 +7,7 @@ class HostelForm(models.Model):
     _description = 'Hostel Form'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'name'
+    _order = 'priority desc'
 
     name = fields.Char(string='Name', required=True)
     contact_number = fields.Char(string='Contact number', required=True)
@@ -32,6 +33,7 @@ class HostelForm(models.Model):
     caution_deposit_refundable = fields.Boolean(string='Caution Deposit Refundable')
     admission_fee = fields.Float(string='Admission Fee')
     terms_and_conditions = fields.Text(string='Terms and Conditions')
+    priority = fields.Selection([('0', 'Low'), ('pin', 'Pinned')], string='Priority')
 
     #bed share
     single_share = fields.Boolean(string='Single Share')
