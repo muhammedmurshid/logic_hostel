@@ -23,6 +23,9 @@
                         </h1>
                     </div>
                     <div>
+                        <field name="common_rent" widget="monetary"/>
+                    </div>
+                    <div>
                         <field name="priority" widget="priority"/>
 
                     </div>
@@ -49,6 +52,7 @@
                             <field name="distance_from_institute"/>
                             <field name="hostel_type"/>
                             <field name="currency_id" invisible="1"/>
+                            <field name="priority_number"/>
                             <!--                            <field name="students_per_room"/>-->
                             <field name="no_of_rooms"/>
 
@@ -123,6 +127,11 @@
                         <page string="Note" name="note">
                             <group>
                                 <field name="note" placeholder="Notes"/>
+                            </group>
+                        </page>
+                        <page string="Facilities" name="facilities">
+                            <group>
+                                <field name="facilities" placeholder="Facilities"/>
                             </group>
                         </page>
                     </notebook>

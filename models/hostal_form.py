@@ -7,7 +7,7 @@ class HostelForm(models.Model):
     _description = 'Hostel Form'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'name'
-    _order = 'priority desc'
+    _order = 'priority_number asc'
 
     name = fields.Char(string='Name', required=True)
     contact_number = fields.Char(string='Contact number', required=True)
@@ -17,7 +17,8 @@ class HostelForm(models.Model):
     no_of_rooms = fields.Integer(string='No of rooms')
     status = fields.Selection(selection=[
         ('active', 'Active'), ('inactive', 'Inactive')
-    ],default='active', string='status')
+    ], default='active', string='status')
+    common_rent = fields.Float(string='Common rent')
     rating_ids = fields.One2many(
         'students.rating', 'rating_id', string='Rating'
     )
@@ -26,10 +27,12 @@ class HostelForm(models.Model):
             ('boys', 'Boys'), ('girls', 'Girls')
         ], string='Hostel Type', required=True
     )
+    facilities = fields.Html(string='Facilities')
     distance_from_institute = fields.Float(string='Distance from institute')
     branch = fields.Many2one('logic.base.branches', string='Branch')
     contact_person = fields.Char(string='Contact Person', required=True)
     caution_amount = fields.Float(string='Caution Deposit')
+    priority_number = fields.Integer(string='Priority', default=0, compute='_compute_priority_number')
     caution_deposit_refundable = fields.Boolean(string='Caution Deposit Refundable')
     admission_fee = fields.Float(string='Admission Fee')
     terms_and_conditions = fields.Text(string='Terms and Conditions')
@@ -83,6 +86,14 @@ class HostelForm(models.Model):
             })
 
     avg_total = fields.Float(string='Average Total', compute='_average_total')
+
+    @api.depends('priority')
+    def _compute_priority_number(self):
+        for i in self:
+            if i.priority == '1':
+                i.priority_number = 1
+            else:
+                i.priority_number = 0
 
     @api.depends('rating_ids.star_rating', 'rating_ids')
     def _compute_average(self):
