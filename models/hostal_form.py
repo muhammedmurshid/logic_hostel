@@ -7,7 +7,7 @@ class HostelForm(models.Model):
     _description = 'Hostel Form'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'name'
-    _order = 'priority_number asc'
+    _order = 'priority desc'
 
     name = fields.Char(string='Name', required=True)
     contact_number = fields.Char(string='Contact number', required=True)
@@ -16,7 +16,8 @@ class HostelForm(models.Model):
     # rent = fields.Float(string='Rent', required=True)
     no_of_rooms = fields.Integer(string='No of rooms')
     status = fields.Selection(selection=[
-        ('active', 'Active'), ('inactive', 'Inactive')
+        ('active', 'Active'), ('inactive', 'Inactive'), ('average', 'Average'),
+        ('poor', 'Poor')
     ], default='active', string='status')
     common_rent = fields.Float(string='Common rent')
     rating_ids = fields.One2many(
@@ -32,13 +33,13 @@ class HostelForm(models.Model):
     branch = fields.Many2one('logic.base.branches', string='Branch')
     contact_person = fields.Char(string='Contact Person', required=True)
     caution_amount = fields.Float(string='Caution Deposit')
-    priority_number = fields.Integer(string='Priority', default=0, compute='_compute_priority_number')
     caution_deposit_refundable = fields.Boolean(string='Caution Deposit Refundable')
     admission_fee = fields.Float(string='Admission Fee')
     terms_and_conditions = fields.Text(string='Terms and Conditions')
-    priority = fields.Selection([('0', 'Low'), ('1', 'Pinned')], string='Priority')
+    priority = fields.Selection([('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')],
+                                string='Priority')
 
-    #bed share
+    # bed share
     single_share = fields.Boolean(string='Single Share')
     single_rent = fields.Float('Rent')
     double_share = fields.Boolean(string='2 Share')
@@ -87,13 +88,7 @@ class HostelForm(models.Model):
 
     avg_total = fields.Float(string='Average Total', compute='_average_total')
 
-    @api.depends('priority')
-    def _compute_priority_number(self):
-        for i in self:
-            if i.priority == '1':
-                i.priority_number = 1
-            else:
-                i.priority_number = 0
+
 
     @api.depends('rating_ids.star_rating', 'rating_ids')
     def _compute_average(self):
@@ -159,5 +154,3 @@ class HostelForm(models.Model):
             'hostel_name': hostels,
             'total_students': len(employees),
         }
-
-

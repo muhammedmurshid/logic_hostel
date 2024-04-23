@@ -11,10 +11,14 @@
                 </header>
                 <sheet>
                     <widget name="web_ribbon" title="Active" bg_color="bg-success"
-                            attrs="{'invisible': [('status', '!=', 'active')]}"/>
+                            attrs="{'invisible': [('status', 'in', ['inactive','average','below_average','poor'])]}"/>
                     <widget name="web_ribbon" title="Inactive" bg_color="bg-danger"
-                            attrs="{'invisible': [('status', '=', 'active')]}"/>
+                            attrs="{'invisible': [('status', 'in', ['active','average','below_average','poor'])]}"/>
+                    <widget name="web_ribbon" title="Average" bg_color="bg-primary"
+                            attrs="{'invisible': [('status', 'in', ['active','inactive','below_average','poor'])]}"/>
 
+                    <widget name="web_ribbon" title="Poor" bg_color="bg-danger"
+                            attrs="{'invisible': [('status', 'in', ['active','average','below_average','inactive'])]}"/>
                     <div class="oe_title pr-0">
                         <h1 class="d-flex flex-row justify-content-between">
                             <field name="name" class="o_task_name text-truncate" placeholder="Hostel Name..."
@@ -52,7 +56,6 @@
                             <field name="distance_from_institute"/>
                             <field name="hostel_type"/>
                             <field name="currency_id" invisible="1"/>
-                            <field name="priority_number"/>
                             <!--                            <field name="students_per_room"/>-->
                             <field name="no_of_rooms"/>
 
