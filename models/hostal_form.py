@@ -25,8 +25,13 @@ class HostelForm(models.Model):
     )
     hostel_type = fields.Selection(
         selection=[
-            ('boys', 'Boys'), ('girls', 'Girls')
-        ], string='Hostel Type', required=True
+            ('boys', 'Boys'), ('girls', 'Girls'), ('mixed', 'Mixed'),
+        ], string='Gender', required=True
+    )
+    type = fields.Selection(
+        selection=[
+            ('pg', 'PG'), ('hostel', 'Hostel'),
+        ], string='Type', required=True
     )
     facilities = fields.Html(string='Facilities')
     distance_from_institute = fields.Float(string='Distance from institute')
@@ -37,7 +42,7 @@ class HostelForm(models.Model):
     admission_fee = fields.Float(string='Admission Fee')
     terms_and_conditions = fields.Text(string='Terms and Conditions')
     priority = fields.Selection([('0', '0'), ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')],
-                                string='Priority')
+                                string='Priority', default='1')
 
     # bed share
     single_share = fields.Boolean(string='Single Share')

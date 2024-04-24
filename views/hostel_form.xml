@@ -61,6 +61,7 @@
 
                         </group>
                         <group>
+                            <field name="type"/>
                             <!--                            <field name="rent" widget="monetary"/>-->
                             <field name="caution_amount" widget="monetary"/>
                             <field name="caution_deposit_refundable"/>
