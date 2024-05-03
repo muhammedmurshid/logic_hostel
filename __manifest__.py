@@ -2,7 +2,7 @@
     'name': "Logic Hostel",
     'version': "14.0.1.0",
     'sequence': "0",
-    'depends': ['base', 'hr', 'website', 'project'],
+    'depends': ['base', 'hr', 'website'],
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
