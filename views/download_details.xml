@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hostel_download_details_view" model="ir.ui.view">
+        <field name="name">download.hostel.details</field>
+        <field name="model">download.hostel.details</field>
+        <field name="arch" type="xml">
+            <footer>
+                <button name="print_excel_report" string="Print" type="object" class="btn-primary"/>
+            </footer>
+            <form string="Download">
+                <group class="oe_title">
+                    <field name="hostel_id" widget="many2many_tags"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="download_hostel_details_action" model="ir.actions.act_window">
+        <field name="name">Download Hostel Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">download.hostel.details</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hostel_download_details_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem name="Download Hostel Details" id="menu_hostel_details_downloading" action="download_hostel_details_action"
+              parent="menu_logic_hostels" sequence="2"/>
+
+    <template id="report_student_id_card">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Report title</h2>
+                        <p>This object's name is
+                            <!--                            <span t-field="o.hostel_id.name"/>-->
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_hostel_pdf_download" model="ir.actions.report">
+        <field name="name">Download PDF Report</field>
+        <field name="model">download.hostel.details</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">logic_hostel.report_student_id_card</field>
+        <field name="report_file">logic_hostel.report_student_id_card</field>
+        <field name="print_report_name">'Student Card - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_download_hostel_details"/>
+    </record>
+</odoo>

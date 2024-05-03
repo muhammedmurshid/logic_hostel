@@ -10,6 +10,7 @@
         'views/student_feedback.xml',
         'views/web_feedback.xml',
         'views/hostel_dashboard.xml',
+        'views/download_details.xml'
     ],
     'qweb': [
         "static/src/xml/dashboard.xml",

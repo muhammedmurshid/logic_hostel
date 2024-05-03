@@ -236,4 +236,5 @@
     <menuitem name="Hostels" id="menu_logic_hostels_plus" action="logic_hostel_action"
               parent="menu_logic_hostels" sequence="1"/>
 
+
 </odoo>

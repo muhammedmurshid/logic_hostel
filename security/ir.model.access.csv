@@ -6,3 +6,5 @@ hostel_student_rating,access_details,model_students_rating,hostel_admin,1,1,1,1
 access_logic_hostel_officer,access_details,model_hostel_form,hostel_admission_officers,1,0,0,0
 hostel_student_feedback_officer,access_details,model_hostel_student_feedback,hostel_admission_officers,0,1,1,1
 hostel_student_rating_officer,access_details,model_students_rating,hostel_admission_officers,1,0,0,0
+
+download_hostel_details_access,download_hostel_details_access,model_download_hostel_details,,1,1,1,1
