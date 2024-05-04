@@ -4,13 +4,15 @@
         <field name="name">download.hostel.details</field>
         <field name="model">download.hostel.details</field>
         <field name="arch" type="xml">
-            <footer>
-                <button name="print_excel_report" string="Print" type="object" class="btn-primary"/>
-            </footer>
+
             <form string="Download">
                 <group class="oe_title">
                     <field name="hostel_id" widget="many2many_tags"/>
                 </group>
+                <footer>
+                    <button name="print_excel_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Discard" type="object" special='cancel'/>
+                </footer>
             </form>
         </field>
     </record>
@@ -23,7 +25,8 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem name="Download Hostel Details" id="menu_hostel_details_downloading" action="download_hostel_details_action"
+    <menuitem name="Download Hostel Details" id="menu_hostel_details_downloading"
+              action="download_hostel_details_action"
               parent="menu_logic_hostels" sequence="2"/>
 
     <template id="report_student_id_card">
